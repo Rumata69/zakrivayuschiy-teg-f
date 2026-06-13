@@ -31,27 +31,31 @@
   width: var(--calculated-width);
 }
 
-header {
+.header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  min-height: 327px;
+  padding: 122px 0px;
   margin: 100px 0px;
   border: solid black 2px;
-  font-family: var(--accent-font), sans-serif;
+  font-family: var(--accent-font), fantasy;
   background-color: white;
 }
 
 .logo {
-  width: clamp(343px 100% 455px);
-  font-size: 49px;
+  width: clamp(343px, 90%, 455px);
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
 }
 
 .header_title {
-  width: clamp(210px 100% 345px);
-  font-size: 14px;
+  width: clamp(210px, 90%, 345px);
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   text-transform: uppercase;
 }
 
@@ -64,13 +68,16 @@ header {
 }
 
 .card_header {
-  padding: 4px 10px;
+  font-size: 18px;
+  padding: 6px 10px;
+  line-height: 100%;
   font-variation-settings: "wght" var(--card-title-weight);
 }
 
 .img_container {
   position: relative;
   height: 371px;
+  width: 100%;
   border-width: 2px 0px 2px 0px;
   border-style: solid;
   border-color: #000000;
@@ -81,7 +88,7 @@ header {
   top: 25px;
   right: 25px;
   opacity: 50%;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
   text-shadow:
     -1px 0 white,
@@ -89,6 +96,7 @@ header {
     0 -1px white,
     0 1px white;
   mix-blend-mode: hard-light;
+  text-transform: uppercase;
 }
 
 @supports (-webkit-text-stroke: 1px white) {
@@ -99,28 +107,24 @@ header {
 }
 
 .img_container img {
+  object-fit: cover;
   width: 100%;
   height: 100%;
+  object-position: center;
 }
 
 .card_content {
+  display: flex;
+  flex-direction: column;
   margin: 25px;
-}
-
-button {
-  border: none;
-  padding: 0;
-  color: inherit;
-  font: inherit;
-  background: none;
-  cursor: pointer;
+  gap: 25px;
 }
 
 .buttons {
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 12px;
+  gap: 7px;
   margin-right: 25px;
   margin-bottom: 25px;
   background-color: white;
@@ -152,13 +156,46 @@ button {
   flex-direction: row;
   align-items: center;
   gap: 20px;
+  width: 261px;
+}
+
+.floppy_last_item {
+  height: 28px;
+  width: 28px;
 }
 
 @media (min-width: 768px) {
+  .header {
+    padding: 128px 0;
+  }
+
+  .card {
+    margin-bottom: 50px;
+  }
+
   .floppy_button {
     flex-direction: row;
     width: 340px;
     min-height: 55px;
+  }
+
+  .floppy_last_item {
+    height: 21px;
+    width: 21px;
+  }
+
+  .img_container {
+    height: 696px;
+    width: 696px;
+  }
+
+  .floppy_button_dialog {
+    width: 293px;
+  }
+
+  .dialog {
+    padding: 30px 30px;
+    max-width: calc(100% - 22px);
   }
 }
 
@@ -178,7 +215,7 @@ button {
   position: relative;
   z-index: 1;
   color: var(--button-text-color);
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
   mix-blend-mode: difference;
 }
@@ -195,7 +232,7 @@ dialog::backdrop {
   width: 100%;
   height: 38px;
   border: solid black 2px;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
 }
 
 .last_item {
@@ -204,6 +241,8 @@ dialog::backdrop {
 
 .dialog_content {
   max-width: 198px;
+  text-transform: uppercase;
+  line-height: 150%;
 }
 
 .filter-sepia {
@@ -271,14 +310,10 @@ dialog::backdrop {
   mix-blend-mode: difference;
 }
 
-.floppy_icon {
-  position: relative;
-  z-index: 1;
-  color: var(--button-text-color);
-  mix-blend-mode: difference;
-}
-
 .card__icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 38px;
   height: 38px;
   border: 2px solid white;
@@ -363,5 +398,5 @@ dialog::backdrop {
 }
 
 .like-icon.is-liked .sparks {
-  animation: sparks 0.3s ease-in 0.3s 1 forwards;
+  animation: sparks 0.3s ease-in 0.3s 1;
 }
