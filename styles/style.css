@@ -147,8 +147,12 @@
   display: none;
   flex-direction: column;
   gap: 30px;
-  max-width: calc(100% - 32px);
-  padding: 30px 40px;
+  padding: 27px 37px;
+  max-width: none;
+}
+
+.dialog_content {
+  min-width: 202px;
 }
 
 .floppy_button_dialog {
@@ -156,7 +160,6 @@
   flex-direction: row;
   align-items: center;
   gap: 20px;
-  width: 261px;
 }
 
 .floppy_last_item {
@@ -189,13 +192,12 @@
     width: 696px;
   }
 
-  .floppy_button_dialog {
-    width: 293px;
+  .dialog {
+    padding: 27px 27px;
   }
 
-  .dialog {
-    padding: 30px 30px;
-    max-width: calc(100% - 22px);
+  .dialog_content {
+    min-width: 234px;
   }
 }
 
